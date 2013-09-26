@@ -16,4 +16,4 @@ You can move the paddle by clicking with the mouse in the canvas and then move t
 Author
 ------
 
-[![Benny Neugebauer on stackoverflow.com][bennyn]][bennyn]
+[![Lipis flair on stackoverflow.com][lipisflair]][lipis]
