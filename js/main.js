@@ -68,7 +68,7 @@ var ball = sprites[1];
 // Create the gameMessage from the base messageObject
 var gameMessage = Object.create(messageObject);
 gameMessage.fillStyle = "red";
-gameMessage.font = "20px puzzler";
+// gameMessage.font = "20px Bazar";
 gameMessage.x = 12;
 gameMessage.y = 12;
 messages.push(gameMessage);
@@ -139,9 +139,9 @@ function loadHandler() {
 }
 
 // Add a mouse listener and a function that finds the mouse's position on the canvas
-canvas.addEventListener("mousemove", mousemoveHandler, false);
+canvas.addEventListener("mousemove", mouseMoveHandler, false);
 
-function mousemoveHandler(event) {
+function mouseMoveHandler(event) {
   // Find the mouse's x and y position.
   // Subtract the canvas's top and left offset.
   mouseX = event.pageX - canvas.offsetLeft;
