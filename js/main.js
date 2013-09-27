@@ -26,15 +26,7 @@ var collision = false;
 var score = 0;
 var blocks = [];
 
-/**
- * Game states: 
- * The game's initial state is set to "LOADING"	
- */
-var LOADING = 0;
-var BUILD_MAP = 1;
-var PLAYING = 2;
-var OVER = 3;
-var gameState = LOADING;
+var gameState = Breakout.Game.States.LOADING;
 
 // The paddle
 var paddle = new Breakout.SpriteObject({
@@ -48,7 +40,6 @@ paddle.setPosition({
   x: canvas.width / 2 - paddle.halfWidth(),
   y: canvas.height - 16
 });
-
 
 // The ball
 var ball = new Breakout.SpriteObject({
@@ -139,7 +130,7 @@ function loadHandler() {
     // music.play();
 
     // Make the game start playing
-    gameState = BUILD_MAP;
+    gameState = Breakout.Game.States.BUILD_MAP;
     console.log("All assets loaded");
   }
 }
@@ -167,19 +158,19 @@ function update() {
    * the game state will change from LOADING to PLAYING.
    */
   switch (gameState) {
-    case LOADING:
+    case Breakout.Game.States.LOADING:
       break;
 
-    case BUILD_MAP:
+    case Breakout.Game.States.BUILD_MAP:
       buildMap();
-      gameState = PLAYING;
+      gameState = Breakout.Game.States.PLAYING;
       break;
 
-    case PLAYING:
+    case Breakout.Game.States.PLAYING:
       playGame();
       break;
 
-    case OVER:
+    case Breakout.Game.States.OVER:
       endGame();
       break;
   }
@@ -285,7 +276,7 @@ function playGame() {
 
   // Check for end of game
   if (blocks.length === 0) {
-    gameState = OVER;
+    gameState = Breakout.Game.States.OVER;
   }
 
   gameMessage.text = "Score: " + score;
