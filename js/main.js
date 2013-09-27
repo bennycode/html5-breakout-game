@@ -6,7 +6,6 @@ canvas.style.cursor = "none";
 /**
  * Arrays to manage the sprites, messages and other assets.
  */
-var sprites = [];
 var messages = [];
 var assetsToLoad = [];
 var assetsLoaded = 0;
@@ -28,39 +27,43 @@ var blocks = [];
 
 var gameState = Breakout.Game.States.LOADING;
 
-// The paddle
-var paddle = new Breakout.SpriteObject({
-  sourceX: 0,
-  sourceY: 0,
-  sourceHeight: 16,
-  height: 18
-});
+function createObjects(canvas) {
+  // The paddle
+  var paddle = new Breakout.SpriteObject({
+    sourceX: 0,
+    sourceY: 0,
+    sourceHeight: 16,
+    height: 18
+  });
 
-paddle.setPosition({
-  x: canvas.width / 2 - paddle.halfWidth(),
-  y: canvas.height - 16
-});
+  paddle.setPosition({
+    x: canvas.width / 2 - paddle.halfWidth(),
+    y: canvas.height - 16
+  });
 
-// The ball
-var ball = new Breakout.SpriteObject({
-  sourceX: 64,
-  sourceY: 0,
-  sourceWidth: 12,
-  sourceHeight: 12,
-  width: 12,
-  height: 12,
-  vy: 5,
-  vx: 3
-});
+  // The ball
+  var ball = new Breakout.SpriteObject({
+    sourceX: 64,
+    sourceY: 0,
+    sourceWidth: 12,
+    sourceHeight: 12,
+    width: 12,
+    height: 12,
+    vy: 5,
+    vx: 3
+  });
 
-ball.setPosition({
-  x: canvas.width / 2 - ball.halfWidth(),
-  y: canvas.height - 128
-});
+  ball.setPosition({
+    x: canvas.width / 2 - ball.halfWidth(),
+    y: canvas.height - 128
+  });
 
-// Collect sprites
-sprites.push(paddle);
-sprites.push(ball);
+  return [paddle, ball];
+}
+
+var sprites = createObjects(canvas);
+var paddle = sprites[0];
+var ball = sprites[1];
 
 // Create the gameMessage from the base messageObject
 var gameMessage = Object.create(messageObject);
