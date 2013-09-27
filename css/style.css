@@ -1,0 +1,12 @@
+/* TODO: Resource interpreted as Font but transferred with MIME type application/octet-stream */
+/*
+@font-face 
+{
+    font-family: puzzler;
+    src: url("../fonts/puzzlerRough.ttf"); 
+}
+*/
+
+canvas {
+  border: 1px dashed black;
+}
