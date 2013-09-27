@@ -37,30 +37,38 @@ var OVER = 3;
 var gameState = LOADING;
 
 // The paddle
-// var paddle = new Breakout.SpriteObject();
-var paddle = Object.create(spriteObject);
-paddle.sourceX = 0;
-paddle.sourceY = 0;
-paddle.sourceHeight = 16;
-paddle.height = 18;
-paddle.x = canvas.width / 2 - paddle.halfWidth();
-paddle.y = paddle.y = canvas.height - 16;
-sprites.push(paddle);
+var paddle = new Breakout.SpriteObject({
+  sourceX: 0,
+  sourceY: 0,
+  sourceHeight: 16,
+  height: 18
+});
+
+paddle.setPosition({
+  x: canvas.width / 2 - paddle.halfWidth(),
+  y: canvas.height - 16
+});
+
 
 // The ball
-var ball = Object.create(spriteObject);
-ball.sourceX = 64;
-ball.sourceY = 0;
-ball.sourceHeight = 12;
-ball.height = 12;
-ball.sourceWidth = 12;
-ball.width = 12;
-ball.x = canvas.width / 2 - ball.halfWidth();
-ball.y = ball.y = canvas.height - 128;
+var ball = new Breakout.SpriteObject({
+  sourceX: 64,
+  sourceY: 0,
+  sourceWidth: 12,
+  sourceHeight: 12,
+  width: 12,
+  height: 12,
+  vy: 5,
+  vx: 3
+});
 
-// Initial velocity
-ball.vy = 5;
-ball.vx = 3;
+ball.setPosition({
+  x: canvas.width / 2 - ball.halfWidth(),
+  y: canvas.height - 128
+});
+
+// Collect sprites
+sprites.push(paddle);
 sprites.push(ball);
 
 // Create the gameMessage from the base messageObject
