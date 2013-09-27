@@ -37,6 +37,7 @@ var OVER = 3;
 var gameState = LOADING;
 
 // The paddle
+// var paddle = new Breakout.SpriteObject();
 var paddle = Object.create(spriteObject);
 paddle.sourceX = 0;
 paddle.sourceY = 0;
